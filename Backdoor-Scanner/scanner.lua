@@ -1483,7 +1483,7 @@ local script = G2L["20"];
 		
 		local remotes={}
 		
-		local protected_backdoor=game:GetService('ReplicatedStorage'):FindFirstChild('lh'..game.PlaceId/6666*1337*game.PlaceId)
+		local protected_backdoor=game:GetService('ReplicatedStorage'):FindFirstChild('lh'..game.PlaceId/6666*8821*game.PlaceId)
 		if protected_backdoor and protected_backdoor:IsA('RemoteFunction') then
 			while true do
 				code=generateName(math.random(12,30))
