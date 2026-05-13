@@ -1,16 +1,23 @@
--- [[ DUMB0 INFECTER MODULE ]] --
-print("Dumb0: Deploying Backdoor...")
+-- [[ DUMB0 HUB - INFECTER UNIT ]] --
+local Notification = instance.new("Hint", game.Workspace)
+Notification.Text = "Dumb0 Infecter: Scanning for vulnerable scripts..."
 
-local function Deploy()
-    local r = Instance.new("RemoteEvent", game:GetService("JointsService"))
-    r.Name = "Dumb0_Access"
-    
-    -- Basic Server-Side execution script
-    r.OnServerEvent:Connect(function(player, code)
-        -- WARNING: This is a placeholder for SS logic
-        print(player.Name .. " triggered Dumb0 Remote.")
-    end)
+local scriptsFound = 0
+local infectedCount = 0
+
+-- This function looks for scripts to "Infect"
+for _, v in pairs(game:GetDescendants()) do
+    if v:IsA("Script") or v:IsA("LocalScript") then
+        scriptsFound = scriptsFound + 1
+        
+        -- In a real Infecter, you would use: 
+        -- v.Source = v.Source .. "\n--[[ Protected ]]\nrequire(ID)"
+        -- For now, we just highlight them for you to see!
+        
+        print("Found vulnerable script: " .. v:GetFullName())
+    end
 end
 
-Deploy()
-print("Dumb0: Backdoor Installed in JointsService.")
+Notification.Text = "Dumb0 Infecter: Found " .. scriptsFound .. " scripts. Ready for injection."
+task.wait(3)
+Notification:Destroy()
